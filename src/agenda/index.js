@@ -148,7 +148,6 @@ export default class AgendaView extends Component {
           firstReservationLoad: true
         },
         () => {
-          _.invoke(this.props, 'loadItemsForMonth', xdateToData(this.state.selectedDay));
         }
       );
     }
@@ -177,7 +176,6 @@ export default class AgendaView extends Component {
     this.setScrollPadPosition(this.initialScrollPadPosition(), true);
     this.calendar.scrollToDay(day, this.calendarOffset(), true);
 
-    _.invoke(this.props, 'loadItemsForMonth', xdateToData(day));
     _.invoke(this.props, 'onDayPress', xdateToData(day));
   }
 
@@ -265,7 +263,7 @@ export default class AgendaView extends Component {
 
       this.scrollTimeout = setTimeout(() => {
         if (this._isMounted) {
-          _.invoke(this.props, 'loadItemsForMonth', months[0]);
+          _.invoke(this.props, 'loadItemsForMonth', months[1]);
         }
       }, 200);
     }
